@@ -35,8 +35,8 @@ endif
 include ../Makefile.KIM_Config
 
 # set model driver specific details
-MODEL_DRIVER_NAME   := Artificial_Neural_Network__MD_000000111111_000
-MODEL_NAME          := Artificial_Neural_Network_C__MO_000000111111_000
+MODEL_DRIVER_NAME   := Artificial_Neural_Network_Intralayer__MD_000000111111_000
+MODEL_NAME          := Artificial_Neural_Network_Intralayer_C__MO_000000111111_000
 SPECIES_001_NAME    := C
 
 PARAM_FILE_001_NAME := ANN.params
