@@ -47,5 +47,5 @@ endif()
 add_kim_api_model_library(
   NAME            "dNN_WT_WenTadmor_2019_C__MO_000000111111_000"
   DRIVER_NAME     "dNN_WT__MD_000000111111_000"
-  PARAMETER_FILES "ANN.params" "dropout_binary.params"
+  PARAMETER_FILES "descriptor.params" "ANN.params" "dropout_binary.params"
   )
