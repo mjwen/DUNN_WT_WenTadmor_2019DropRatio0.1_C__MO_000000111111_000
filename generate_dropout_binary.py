@@ -21,7 +21,7 @@ def get_num_units_and_keep_probability(fname='ANN.params'):
   return num_units, keep_prob
 
 
-def write_dropout_binary(num_units, keep_prob, repeat=50, fname='dropout_binary.txt'):
+def write_dropout_binary(num_units, keep_prob, repeat=50, fname='dropout_binary.params'):
   with open(fname, 'w') as fout:
     fout.write('{} # number of repeat\n'.format(repeat))
     for rep in range(repeat):
@@ -42,6 +42,6 @@ def write_dropout_binary(num_units, keep_prob, repeat=50, fname='dropout_binary.
 
 if __name__ == '__main__':
   np.random.seed(305)
-  num_units, keep_prob = get_num_units_and_keep_probability()
+  num_units, keep_prob = get_num_units_and_keep_probability(fname='ANN.params')
   write_dropout_binary(num_units, keep_prob, repeat=50)
 

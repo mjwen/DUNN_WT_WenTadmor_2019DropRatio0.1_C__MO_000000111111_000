@@ -19,32 +19,33 @@
 #
 
 #
-# Copyright (c) 2015, Regents of the University of Minnesota.
+# Copyright (c) 2013--2019, Regents of the University of Minnesota.
 # All rights reserved.
 #
 # Contributors:
+#    Mingjian Wen
 #
 
 
-# load all basic KIM make configuration
-ifeq ($(wildcard ../Makefile.KIM_Config),)
-  $(error ../Makefile.KIM_Config does not exist.  Something is wrong with your KIM API package setup)
-endif
-include ../Makefile.KIM_Config
+#
+# Required preamble
+#
 
-# set model driver specific details
-MODEL_DRIVER_NAME   := Artificial_Neural_Network_Intralayer__MD_000000111111_000
-MODEL_NAME          := Artificial_Neural_Network_Intralayer_C__MO_000000111111_000
-SPECIES_001_NAME    := C
+cmake_minimum_required(VERSION 3.4)
 
-PARAM_FILE_001_NAME := ANN.params
-PARAM_FILE_002_NAME := dropout_binary.txt
-# APPEND to compiler option flag lists
-#FFLAGS   +=
-#CFLAGS   +=
-#CXXFLAGS +=
-#LDFLAGS  +=
-#LDLIBS   +=
+list(APPEND CMAKE_PREFIX_PATH $ENV{KIM_API_CMAKE_PREFIX_DIR})
+find_package(KIM-API 2.0 REQUIRED CONFIG)
+if(NOT TARGET kim-api)
+  enable_testing()
+  project("${KIM_API_PROJECT_NAME}" VERSION "${KIM_API_VERSION}"
+    LANGUAGES CXX C Fortran)
+endif()
 
-# load remaining KIM make configuration
-include $(KIM_DIR)/$(builddir)/Makefile.ParameterizedModel
+# End preamble
+
+
+add_kim_api_model_library(
+  NAME            "dNN_WT_WenTadmor_2019_C__MO_000000111111_000"
+  DRIVER_NAME     "dNN_WT__MD_000000111111_000"
+  PARAMETER_FILES "ANN.params" "dropout_binary.params"
+  )
