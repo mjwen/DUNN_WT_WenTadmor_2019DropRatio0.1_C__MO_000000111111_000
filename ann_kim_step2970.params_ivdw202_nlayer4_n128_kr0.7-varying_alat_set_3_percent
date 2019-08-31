@@ -183,7 +183,7 @@ center_and_normalize  True
 # You need to transpose your weight matrix if each column of "X" is an observation.
 #================================================================================
 
-4    # number of layers (excluding input layer, includingoutput layer)
+4    # number of layers (excluding input layer, including output layer)
 128  128  128  1    # size of each layer (last must be 1)
 tanh    # activation function
 1  0.7  0.7  0.7    # keep probability of input for each layer
