@@ -2,12 +2,10 @@
 cos
 
 # num species
-2
+1
 
 # species 1  species 2  cutoff value
 C C 5
-C H 5
-H H 5
 
 #================================================================================
 # symmetry functions
